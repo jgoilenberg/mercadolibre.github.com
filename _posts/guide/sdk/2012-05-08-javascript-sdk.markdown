@@ -41,7 +41,7 @@ Under the hood, the JSSDK checks that:
 - You authorized the app “melidev” to access your data
     
 
-##HTTPS connection
+###HTTPS connection
 
 To use the SDK in HTTPS you need to configure the xd_url parameter to point to https://secure.mlstatic.com/org-img/sdk/xd-1.0.1.html
  
@@ -64,16 +64,14 @@ MELI.init({client_id: 6586,
 
 
 
-##API Methods
+###API Methods
 
 <div class="ch-box">
 	<div id="init">
 		<p><strong>init</strong>(options)</p>
 		<div>
-			<p>MELI SDK javascript initilization.<br/> 
-				In order to connect with MercadoLibre API you must add initial <strong>options</strong> in MELI initialization. 
-			</p>
-			<p>This method initialize OAuth protocol in MELI</p>
+			<p>Sets options to init	MELI SDK javascript.</p>
+			<p>This method initialize <a href="http://tools.ietf.org/pdf/draft-ietf-oauth-v2-12.pdf">OAuth 2.0</a> protocol.</p>
 
 <code>client_id</code> ( int ) - mandatory. <br/> 
 	
@@ -111,12 +109,11 @@ MELI.init({ client_id: 6586 });
 	<div id="login">
 		<p><strong>login</strong>(callback)</p>
 		<div>
-			<p>Login in mercadolibre. </p>
-			<p>This method will open window popup to complete login process in MercadoLibre .</p>  
+			<p>Login in MercadoLibre. It will open a new window popup to complete login process in MercadoLibre if it is necessary.</p>  
 
-<code>callback</code> ( function )<br/> 
+			<code>callback</code> ( function )<br/> 
 	
-&nbsp;&nbsp;&nbsp;&nbsp;<p>In order to login in MercadoLibre you can use this method passing a callback function parameter. This function is called when user login process is completed.</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;This function is called when user login process is complete.</p>
 
 {% highlight javascript %}
 /**
@@ -137,7 +134,7 @@ MELI.login(function() {
 	<div id="logout">
 		<p><strong>logout</strong>()</p>
 		<div>
-			<p>This method completes logout process expiring access tokens and login out from MercadoLibre</p>
+			<p>Logout process expires access token</p>
 {% highlight javascript %}
 /**
  * Logouts MELI from MercadoLibre and invalidates access token.
@@ -156,14 +153,12 @@ MELI.logout();
 	<div id="getToken">
 		<p><strong><strong>getToken</strong>()</strong></p>
 		<div>
-			<p>Obtains the token, if the user is logged.</p>
-
-<p>Following autorization state of the user it retrieves necessary token to connect with MercadoLibre API.</p>
+			<p>Obtains an access token if the user is logged.</p>
+			<p>Following autorization state of the user it retrieves necessary token to connect with MercadoLibre API.</p>
 {% highlight javascript %}
 if(!MELI.getToken()) {
 	// Your code here
 } 
-
 {% endhighlight %}
 		</div>
 	</div>
@@ -173,17 +168,15 @@ if(!MELI.getToken()) {
 	var foo = $("#getToken").expando();
 </script>
 
-
 <div class="ch-box">
 	<div id="getLoginStatus">
 		<p><strong>getLoginStatus</strong>(callback)</p>
 		<div>
 			<p>Retrieves logins status</p>
-			<p>They are three possible status:</p>
+			<code>callback</code> ( function )<br/> 
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;This function is called with the autorization state.</p>
 
-<code>callback</code> ( function )<br/> 
-	
-&nbsp;&nbsp;&nbsp;&nbsp;<p></p>
+			<p>They are three possible status:</p>
 
 			<ol class="ch-list">
 				<li><code>UNKNOWN</code></li>
@@ -212,8 +205,7 @@ MELI.getLoginStatus(function(data) {
 		<p><strong>get</strong>(url, params, callback)</p>
 		<div>
 			<p>Executes a GET request retrieving information identified by the resource.</p>
-			<p></p>	
-			
+
 {% highlight javascript %}
 /**
  * Invokes https://api.mercadolibre.com/users/me?access_token=...
@@ -231,8 +223,6 @@ MELI.get('/users/me', null, function(data) {
 <script>
 	var foo = $("#get").expando();
 </script>
-
-
 
 <div class="ch-box">
 	<div id="post">
@@ -259,7 +249,6 @@ MELI.post(url, params, function(data) {
 		<p><strong>put</strong>(url, params, callback)</p>
 		<div>
 			<p>Executes a PUT request changing a resource using javascript SDK. </p>
-
 {% highlight javascript %}
 MELI.put(url, params, function(data) {
 	// Your code here
