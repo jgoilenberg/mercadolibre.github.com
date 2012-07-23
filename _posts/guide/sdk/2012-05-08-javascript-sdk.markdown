@@ -242,8 +242,6 @@ MELI.post(url, params, function(data) {
 	var foo = $("#post").expando();
 </script>
 
-
-
 <div class="ch-box">
 	<div id="put">
 		<p><strong>put</strong>(url, params, callback)</p>
@@ -265,7 +263,7 @@ MELI.put(url, params, function(data) {
 
 <div class="ch-box">
 	<div id="remove">
-		<p><strong>remove</strong>((url, params, callback))</p>
+		<p><strong>remove</strong>(url, params, callback)</p>
 		<div>
 			<p>Executes a DELETE request deleting a resource using javascript SDK. </p>
 {% highlight javascript %}
