@@ -174,7 +174,7 @@ if(!MELI.getToken()) {
 		<div>
 			<p>Retrieves logins status</p>
 			<code>callback</code> ( function )<br/> 
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;This function is called with the autorization state.</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;This function is called with the login status.</p>
 
 			<p>They are three possible status:</p>
 
