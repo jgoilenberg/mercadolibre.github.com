@@ -61,7 +61,7 @@ If a refresh token is present in the authorization code exchange, then it may be
 This type of access to the API is called **offline**, since the user does not have to be present at the browser when the application obtains a new access token.
 
  
-When invoking this dialog, you must pass your client id that is generated when you create your application in our [Applications Portal](http://applications.mercadolibre.com.ar/home) (the client_id parameter) and the URL that the user's browser will be redirected to once app authorization is completed (the redirect_uri parameter).
+When invoking this dialog, you must pass your client id that is generated when you create your application in our [Applications Portal](http://applications.mercadolibre.com) (the client_id parameter) and the URL that the user's browser will be redirected to once app authorization is completed (the redirect_uri parameter).
 
 <h3>Step 1: Obtain a code</h3>
 
@@ -100,7 +100,7 @@ If the user grants your application the requested data permission the OAuth Dial
 
 Using this code you can perform the next step: app authentication. After your application has been authenticated you will receive an access code which you can use when making calls to the API. The authorization code can only be exchanged once for an access token.
 
-The app secret can be viewed when you log in to our [Applications Portal](http://applications.mercadolibre.com.ar/home), you should never share your application secret with anyone. 
+The app secret can be viewed when you log in to our [Applications Portal](http://applications.mercadolibre.com), you should never share your application secret with anyone. 
 
 To authenticate your app and get a token make a *POST* to the following URL:
 
@@ -151,7 +151,7 @@ Access tokens have an expiration time. Typically a webserver application will ne
 After the consumer has been authorized for access, they can obtain a refresh token. The refresh token can be used to get a new access token once it has expired. This is only done after the consumer already has received an access token using either the Web server or user-agent flow.
 This becomes necessary when an access token is no longer valid and when you need to make it valid again.
 
-When you register your application in the [Applications Portal](http://applications.mercadolibre.com.ar/home) you need to give offline_access for this purpose.
+When you register your application in the [Applications Portal](http://applications.mercadolibre.com) you need to give offline_access for this purpose.
 
 If you set it up this way, every time your webserver exchanges a code for an access_token it will also receive a refresh token.
 
