@@ -50,6 +50,7 @@
 
 
 	<section class="main ch-g1">
+    <div id="cse" style="width: 100%;">Loading</div>
 		{{ content }}
 	</section>
 	
@@ -64,6 +65,16 @@
 	</footer>
 	
 	<script src="javascripts/scale.fix.js"></script>
+  <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+  <script type="text/javascript"> 
+      google.load('search', '1', {style : google.loader.themes.V2_DEFAULT});
+        google.setOnLoadCallback(function() {
+                var customSearchOptions = {};  var customSearchControl = new google.search.CustomSearchControl(
+                        '017586013854347464845:atz5lcehloe', customSearchOptions);
+                    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+                        customSearchControl.draw('cse');
+                          }, true);
+                        </script>
 	<!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
 </body>
 </html>
