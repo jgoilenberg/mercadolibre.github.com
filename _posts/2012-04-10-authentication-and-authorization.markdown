@@ -24,7 +24,7 @@ A successful authentication flow results in your application obtaining a user ac
 
 When you obtain an access token, it will be valid immediately and usable in requests to the API for some time period. After that period has elapsed, the access token is considered to have expired and the user will need to be authenticated again in order for your app to obtain a fresh access token. The duration for which a given access token is valid depends on how it was generated.
 
-There are also events which may cause an access token to become invalid before its expected expiry time. Such events include the user changing their password, an application refreshing it's App Secret. Dealing with varying access token expiry times, and handling the case when an access token becomes invalid before its expected expiry time is essential for building robust social experiences.
+There are also events which may cause an access token to become invalid before its expected expiry time. Such events include the user changing their password, an application refreshing it's App Secret. Dealing with varying access token expiry times, and handling the case when an access token becomes invalid before its expected expiry time is essential for building a robust application.
 
 
 ## Steps obtaining an access token {#steps-obtaining-token}
@@ -79,13 +79,13 @@ https://auth.mercadolibre.com.ar/authorization?response_type=code&client_id=Clie
     <code>client_id</code>: The client ID assigned to your app when created.
   </li>
   <li>
-    <code>redirect_uri</code>: <em class="string">URL</em> — The callback URL configured for your app, or one of the allowed domains.
+    <code>redirect_uri</code>: <em class="string">URL</em> — Optional. The callback URL configured for your app, or one of the allowed domains.
   </li>
 </ul>
 
 
 
-When the user succesfully logged in a cookie will be stored on the user's computer. If the OAuth dialog is requested for a second time the dialog will not be shown but instead the cookie will be validated. When the dialog is shown the user is prompted to enter his credentials:
+When the user is succesfully logged in a cookie will be stored on the user's computer. If the OAuth dialog is requested for a second time the dialog will not be shown but instead the cookie will be validated. When the dialog is shown the user is prompted to enter his credentials:
 
 ![Login page](/images/login_auth.png)
 
@@ -98,7 +98,7 @@ If the user grants your application the requested data permission the OAuth Dial
 	
 <h3>Step 2: Exchange the code for a token</h3>
 
-Using this code you can perform the next step: app authentication. After your application has been authenticated you will receive an access code which you can use when making calls to the API. In order to authenticate your app you have to submit your authorization code and app secret to the token endpoint at the address:
+Using this code you can perform the next step: app authentication. After your application has been authenticated you will receive an access code which you can use when making calls to the API. The authorization code can only be exchanged once for an access token.
 
 The app secret can be viewed when you log in to our [Applications Portal](http://applications.mercadolibre.com), you should never share your application secret with anyone. 
 
@@ -148,7 +148,7 @@ Access tokens have an expiration time. Typically a webserver application will ne
 
 **How to obtain a refresh token?**
 
-After the consumer has been authorized for access, they can obtain a refresh token. The refresh token can be used to refresh a token once it has expired. This is only done after the consumer already has received an access token using either the Web server or user-agent flow.
+After the consumer has been authorized for access, they can obtain a refresh token. The refresh token can be used to get a new access token once it has expired. This is only done after the consumer already has received an access token using either the Web server or user-agent flow.
 This becomes necessary when an access token is no longer valid and when you need to make it valid again.
 
 When you register your application in the [Applications Portal](http://applications.mercadolibre.com) you need to give offline_access for this purpose.
@@ -233,7 +233,7 @@ You don't need to pass your redirect URL. Just make a GET request to this URL:
 
 If your app is succesfully authenticated and the user grants permission (consent), the authorization server will redirect to your applications callback URL with an access token in the query string response like this:
 
-<pre>http://YOUR_URL?access_token=APP_USR-6092-3246532-cb45c82853f6e620bb0deda096b128d3-8035443&token_type=bearer,expires_in=10800</pre>
+<pre>http://YOUR_URL#access_token=APP_USR-6092-3246532-cb45c82853f6e620bb0deda096b128d3-8035443&expires_in=10800&user_id=USER_ID&domains=APP_DOMAINS</pre>
 
 **CONSIDERATIONS**
 
